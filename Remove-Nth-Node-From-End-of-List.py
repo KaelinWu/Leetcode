@@ -21,11 +21,7 @@ class Solution:
             first = first.next
             second = second.next
 
-        prev = second
-        second = second.next
-        foward = second.next
-        second.next = None
-        prev.next = foward
+        second.next = second.next.next
 
         return head
         
