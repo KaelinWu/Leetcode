@@ -10,15 +10,15 @@ class Solution:
             return True
         if not root:
             return False
-        def same(root, subRoot):
+        
+        def same(root,subRoot):
             if not root and not subRoot:
                 return True
-            elif not root or not subRoot:
+            if not root or not subRoot:
                 return False
-            
-            return root.val == subRoot.val and same(root.left, subRoot.left) and same(root.right, subRoot.right)
 
-        if same(root,subRoot):
+            return root.val == subRoot.val and same(root.left,subRoot.left) and same(root.right,subRoot.right)
+
+        if same(root, subRoot):
             return True
         return self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
-        
