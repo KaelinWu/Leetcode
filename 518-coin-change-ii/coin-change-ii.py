@@ -3,9 +3,9 @@ class Solution:
         dp = [0] * (amount+1)
         dp[0] = 1
         for c in coins:
-            for i in range(1, amount+1):
-                if c <= i:
+            for i in range(1,amount+1):
+                if i >= c:
                     dp[i] += dp[i-c]
-                else:
-                    dp[i] += 0
-        return dp[amount]
+
+        print(dp)
+        return dp[-1]
