@@ -1,29 +1,25 @@
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
-        edges = defaultdict(list)
-        for u, v, w in times:
-            edges[u].append((v,w))
+        
+        adj = defaultdict(list)
+        for time in times:
+            u,v,w = time
+            adj[u].append((v,w))
 
         minheap = [(0,k)]
-        res = 0
         visited = set()
+        res = 0
         while minheap:
-            time,node = heapq.heappop(minheap)
-
-            if node in visited:
+            time,curr = heapq.heappop(minheap)
+            if curr in visited:
                 continue
-            visited.add(node)
-            res = time
-            for edge in edges[node]:
-                v,w = edge
+            visited.add(curr)
+            print(curr)
+            for v,w in adj[curr]:
                 if v not in visited:
-                    heapq.heappush(minheap,(w+time,v))
-            
+                    heapq.heappush(minheap,(time+w,v))
+            res = time
         print(visited)
-        print(res)
-        if len(visited) == n:
-            return res
-        return -1
-
+        return res if len(visited) == n else -1
 
        
