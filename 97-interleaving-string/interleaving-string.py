@@ -7,7 +7,7 @@ class Solution:
         if n > m:
             s1,s2 = s2,s1
             n,m = m,n
-        print(m,n)
+        
         dp = [False] * (n+1)
         dp[0] = True
         
