@@ -6,7 +6,7 @@ class Solution:
         buy = [float("-inf")] * n
         sell = [0] * n
         buy[0] = -prices[0]
-        buy[1] = max(-prices[0],-prices[1])
+        
         for i in range(1, n):
             buy[i] = max(sell[i-2] - prices[i],buy[i-1])
             sell[i] = max(sell[i-1], buy[i-1] + prices[i])
