@@ -23,9 +23,9 @@ class Solution:
             for start,end,dst in adj[curr]:
                 if end < time or dst in visited:
                     continue
-                if start >= time:
-                    heapq.heappush(heap,(start+1,dst))
-                else:
-                    heapq.heappush(heap,(time+1,dst))
+                new_time = max(time,start) + 1
+                    
+               
+                heapq.heappush(heap,(new_time,dst))
                 
         return -1
