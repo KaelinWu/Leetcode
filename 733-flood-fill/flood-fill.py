@@ -6,10 +6,11 @@ class Solution:
         
         org = image[sr][sc]
         def dfs(row,col):
-            if row < 0 or col < 0 or row >= ROW or col >= COL or image[row][col] != org:
+            if row < 0 or col < 0 or row >= ROW or col >= COL or image[row][col] != org or image[row][col] == color:
                 return
-            if image[row][col] != org or image[row][col] == color:
-                return
+            #print(org)
+            # if image[row][col] != org or image[row][col] == color:
+            #     return
             image[row][col] = color
             for dr,dc in directions:
                 dfs(row+dr,col+dc)
