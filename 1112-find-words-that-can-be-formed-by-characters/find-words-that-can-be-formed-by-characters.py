@@ -4,15 +4,15 @@ class Solution:
         res = 0
         for word in words:
             copy = char_dict.copy()
-            match = True
+           
             for c in word:
                 if c in copy and copy[c] != 0:
                     copy[c] -=1
                 else:
-                    match = False
+                    res-=len(word)
                     break
-            if match:
-                res+= len(word)
+            
+            res+= len(word)
         return res
 
                 
