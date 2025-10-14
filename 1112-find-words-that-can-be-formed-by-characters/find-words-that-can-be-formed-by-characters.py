@@ -8,8 +8,9 @@ class Solution:
             for c, freq in word_count.items():
                 if freq > char_dict[c]:
                     match = False
+                    break
             if match:
-                res += len(word)
+                res+=len(word)
 
         return res
 
