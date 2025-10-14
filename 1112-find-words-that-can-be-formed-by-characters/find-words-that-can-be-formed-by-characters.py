@@ -3,15 +3,14 @@ class Solution:
         char_dict = Counter(chars)
         res = 0
         for word in words:
-            copy = char_dict.copy()
+            word_count = Counter(word)
             match = True
-            for c in word:
-                if c in copy and copy[c] != 0:
-                    copy[c] -=1
-                else:
+            for c, freq in word_count.items():
+                if freq > char_dict[c]:
                     match = False
             if match:
-                res+= len(word)
+                res += len(word)
+
         return res
 
                 
