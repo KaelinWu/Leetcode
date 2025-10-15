@@ -3,30 +3,24 @@ class Solution:
         slots1.sort()
         slots2.sort()
 
-        one = 0
-        two = 0
-
-        while one < len(slots1) and two < len(slots2):
+        i1 = 0
+        i2 = 0
+        n,m = len(slots1), len(slots2)
+        while i1 < n and i2 < m:
+            u1,u2 = slots1[i1]
+            v1,v2 = slots2[i2]
             
-            u1,u2 = slots1[one]
-            v1,v2 = slots2[two]
-            high = 0
-            low = 0
-            if v2 > u2:
-                high = u2
-            else:
-                high = v2
-            
-            if u1 > v1:
-                low = u1
-            else:
-                low = v1
-            interval = min(v2,u2) - max(u1,v1)
+            low = max(slots2[i2][0],slots1[i1][0])
+            interval = min(slots2[i2][1],slots1[i1][1]) - low
 
             if interval >= duration:
-                return [low,low+duration]
-            if v2 < u2:
-                two+=1
+                return [low, low+duration]
+            
+            if u2 > v2:
+                i2+=1
             else:
-                one+=1
+                i1+=1
+
+        return []
+
         return []
