@@ -11,4 +11,4 @@ class Solution:
                     return i
             return 1
 
-        return str1[:gcd(len(str1), len(str2))]
+        return str2[:gcd(len(str1), len(str2))]
