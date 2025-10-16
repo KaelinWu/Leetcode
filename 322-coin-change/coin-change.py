@@ -8,5 +8,5 @@ class Solution:
             for coin in coins:
                 if i-coin >=0:
                     dp[i] = min(dp[i],1+dp[i-coin])
-        print(dp)
+       
         return dp[amount] if dp[amount] < amount+1 else -1
